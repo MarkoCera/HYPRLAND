@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+
+# variables
+config=$HOME/.config/hypr
+scripts=$config/scripts
+
+# notification daemon
+dunst &
+
+# waybar
+$scripts/launch_waybar &
+$scripts/tools/dynamic &
+
+# wallpaper
+$scripts/wall $config/wallpapers/4.jpg &
+
+# effects
+$scripts/rgb &
+
+# other
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+notify-send -a aurora "hello $(whoami)" &
+
+sleep 1
+
+# kill all possible running xdg-desktop-portals
+killall -e xdg-desktop-portal-hyprland
+killall -e xdg-desktop-portal-gnome
+killall -e xdg-desktop-portal-kde
+killall -e xdg-desktop-portal-lxqt
+killall -e xdg-desktop-portal-wlr
+killall -e xdg-desktop-portal-gtk
+killall xdg-desktop-portal
+sleep 1
+
+# start xdg-desktop-portal-hyprland
+/usr/lib/xdg-desktop-portal-hyprland &
+sleep 2
+
+# start xdg-desktop-portal
+/usr/lib/xdg-desktop-portal &
+sleep 1

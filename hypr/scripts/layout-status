@@ -1,0 +1,4 @@
+#!/bin/bash
+
+layout="$(cat /etc/vconsole.conf | grep XKBLAYOUT | awk -F'=' '{print toupper($2)}' | xargs)"
+printf "%s   " "$layout"

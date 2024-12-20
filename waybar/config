@@ -1,0 +1,75 @@
+
+
+{
+    "position": "top",
+    "modules-left": ["custom/logo","hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["network", "custom/pipewire", "battery", "clock"],
+
+    "hyprland/workspaces": {
+      "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "re",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "active": "♥",
+            "urgent": ""
+        },
+        "persistent_workspaces": {
+            "*": [ 1,2,3,4,5 ]
+    }
+  },
+                      
+    "clock": {
+      "format": "<span foreground='#C6AAE8'> </span>{:%a %d %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "battery": {
+      "states": {
+        "warning": 35,
+        "critical": 20
+      },
+      "format": "<span size='13000' foreground='#B1E3AD'>{icon}</span> {capacity}%",
+      "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon}</span> {capacity}%",
+      "format-critical": "<span size='13000' foreground='#E38C8F'>{icon}</span> {capacity}%",
+      "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+      "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+      "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon}</span> {time}",
+      "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip-format": "{time}"
+    },
+    "network": {
+      "format-wifi": "<span size='13000' foreground='#F2CECF'> </span>{essid}",
+      "format-ethernet": "<span size='13000' foreground='#F2CECF'> </span>{ipaddr}",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "<span size='13000' foreground='#F2CECF'> </span>Disconnected",
+      "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+      "on-click": "kitty -e nmtui"
+    },
+    "custom/pipewire": {
+      "return-type": "json",
+      "interval": "once",
+      "signal": 8,
+      "format": "{icon} {percentage}",
+      "format-icons": {
+        "mute": "",
+        "default": ["", "", "", ""]
+      },
+      "exec": "pw-volume status"
+    },
+    
+    "custom/logo": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "wlogout"
+  }
+  }
