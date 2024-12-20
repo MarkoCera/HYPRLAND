@@ -1,8 +1,8 @@
 #!/bin/bash
-#sudo pacman -S wofi dunst fish fastfetch kitty thunar ranger \
-#    waybar-git
+sudo pacman -S wofi dunst fish fastfetch kitty thunar ranger \
+    waybar-git 
 
-#yay -S vesktop-git spotify ly-git
+yay -S vesktop-git spotify ly-git
 
 
 
