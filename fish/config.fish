@@ -81,7 +81,7 @@ end
 abbr -a -g ytmp3 'youtube-dl --extract-audio --audio-format mp3'				# Convert/Download YT videos as mp3
 abbr -a -g cls 'clear'																								# Clear
 abbr -a -g h 'history'																								# Show history
-abbr -a -g upd 'paru -Syu --noconfirm'																								# Update everything
+abbr -a -g upd 'sudo pacman -Syu --noconfirm'																								# Update everything
 abbr -a -g please 'sudo'																						# Polite way to sudo
 abbr -a -g fucking 'sudo'																						# Rude way to sudo
 abbr -a -g sayonara 'shutdown now'																	# Epic way to shutdown
