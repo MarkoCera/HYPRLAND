@@ -1,4 +1,4 @@
-// Vencord 25ceff5
+// Vencord 4ab297c
 // Standalone: true
 // Platform: Universal
 // Updater Disabled: false

@@ -1,7 +1,7 @@
 autologin.saved_credentials="{\"312fkf5ruyiehnpqddnmaaxwruzq\":[\"312fkf5ruyiehnpqddnmaaxwruzq\",\"bou40c7AnOuV0+zOIH6HTUSxEZvufypZda5wLPB94ipKiBNuvomFzIqCBcjX9EcXfUP1H0tTh0QZMdFDDInp+Pa+33xHwaco9YFvZAIbF2EETtMUYDKy2vddJ/ILexzjvVxUYaYTMsU/7S3XxYR+9rfWs59CqfChLkl39oERgDKmHzCizdLFU6t4wMMsd6xsDGR2R5rCZZv+AeJsThgZZgxQiBF0nNbb6qq4gc6WXfyFxq9cjWGqZQNou98cCqw2z03yGwt8Wca0ZAANsOTBi0KMuw8BO4x/h/CbiORAnpTQJCvupjZosJ2f3CsCnExMxqUYEr3ZruRkJWrk8gY0fBAC/+Up4lVSlwxMWhXUinw=\"]}"
 autologin.blob="bou40c7AnOuV0+zOIH6HTUSxEZvufypZda5wLPB94ipKiBNuvomFzIqCBcjX9EcXfUP1H0tTh0QZMdFDDInp+Pa+33xHwaco9YFvZAIbF2EETtMUYDKy2vddJ/ILexzjvVxUYaYTMsU/7S3XxYR+9rfWs59CqfChLkl39oERgDKmHzCizdLFU6t4wMMsd6xsDGR2R5rCZZv+AeJsThgZZgxQiBF0nNbb6qq4gc6WXfyFxq9cjWGqZQNou98cCqw2z03yGwt8Wca0ZAANsOTBi0KMuw8BO4x/h/CbiORAnpTQJCvupjZosJ2f3CsCnExMxqUYEr3ZruRkJWrk8gY0fBAC/+Up4lVSlwxMWhXUinw="
 es.send-on-startup=true
-core.clock_delta=0
+core.clock_delta=-3600
 autologin.username="312fkf5ruyiehnpqddnmaaxwruzq"
 app.window.position.saved=true
 app.window.position.height=1516
@@ -11,4 +11,4 @@ app.window.state.saved=true
 app.window.position.width=2524
 app.window.position.x=18
 autologin.canonical_username="312fkf5ruyiehnpqddnmaaxwruzq"
-app.last-launched-version="1.2.50.335.g5e2860a8"
+app.last-launched-version="1.2.53.440.g7b2f582a"
