@@ -92,6 +92,7 @@ smartmontools
 sof-firmware
 starship
 swappy
+tela-circle-icon-theme-pink
 texlive-bin
 texstudio
 thefuck

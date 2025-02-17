@@ -7,7 +7,7 @@ REPO_DIR="$HOME/HYPRLAND"
 LISTS_DIR="$HOME/HYPRLAND/lists"
 
 echo "Installing basic tools..."
-sudo pacman -S --needed --noconfirm git base-devel &> /dev/null
+sudo pacman -S --needed --noconfirm base-devel &> /dev/null
 
 if ! command -v yay &> /dev/null; then
     echo "Installing yay..."
@@ -59,7 +59,7 @@ if [[ $(gsettings get org.gnome.desktop.interface gtk-theme) != "'catppuccin-moc
     echo "WARNING: Catppuccin theme might not be installed correctly!"
 fi
 
-gsettings set org.gnome.desktop.interface icon-theme "Tela-pink" &> /dev/null
+gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-pink-dark" &> /dev/null
 if [[ $(gsettings get org.gnome.desktop.interface icon-theme) != "'Tela-pink'" ]]; then
     echo "WARNING: Tela-pink icon theme might not be installed correctly!"
 fi

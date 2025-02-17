@@ -1,10 +1,8 @@
-appimage-appimage
 cava
 electron28
 electron29
 hyprland-protocols-git
 libelectron
-libnm-iwd
 ly-git
 nomacs
 paper-icon-theme-git
@@ -23,7 +21,6 @@ spotify
 stremio
 sweet-gtk-theme
 teams
-tela-icon-theme-git
 ttf-iosevka-lyte-nerd-font
 tty-clock
 vesktop-git
