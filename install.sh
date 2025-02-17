@@ -24,6 +24,7 @@ else
 fi
 
 echo "Installing yay packages..."
+yay -Syu --noconfirm --needed
 if [[ -f "$LISTS_DIR/aur-pkglist.txt" ]]; then
     yes y|yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
 else
