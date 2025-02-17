@@ -23,16 +23,9 @@ else
     echo "WARNING: pkglist.txt NOT FOUND!"
 fi
 
-echo "Checking for conflicting Node.js packages..."
-if pacman -Qs "nodejs-lts" > /dev/null; then
-    # Remove one of the conflicting versions of nodejs-lts
-    echo "Removing conflicting nodejs-lts packages..."
-    sudo pacman -R --noconfirm nodejs-lts-hydrogen  # Or nodejs-lts-iron, depending on which one you want to keep
-fi
-
 echo "Installing yay packages..."
 if [[ -f "$LISTS_DIR/aur-pkglist.txt" ]]; then
-    yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
+    sudo -u vagrant yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
 else
     echo "WARNING: aur-pkglist.txt NOT FOUND!"
 fi
@@ -54,9 +47,15 @@ sudo ln -snf "$REPO_DIR/ly" /etc/ &> /dev/null
 
 chsh -s /usr/bin/fish &> /dev/null
 
-echo "Enabling/Starting ly display manager"
+echo "Enabling/Starting services"
 sudo systemctl enable ly.service &> /dev/null
 sudo systemctl start ly.service &> /dev/null
+sudo systemctl enable bluetooth.service &> /dev/null
+sudo systemctl start bluetooth.service &> /dev/null
+sudo systemctl enable NetworkManager.servicee &> /dev/null
+sudo systemctl start NetworkManager.service &> /dev/null
+sudo systemctl enable iwd.servicee &> /dev/null
+sudo systemctl start iwd.service &> /dev/null
 
 echo "Setting up wallpaper,fonts,themes,icons..."
 hyprpaper -i "$REPO_DIR"/hypr/wallpapers/1.png &> /dev/null
