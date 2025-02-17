@@ -23,6 +23,13 @@ else
     echo "WARNING: pkglist.txt NOT FOUND!"
 fi
 
+echo "Checking for conflicting Node.js packages..."
+if pacman -Qs "nodejs-lts" > /dev/null; then
+    # Remove one of the conflicting versions of nodejs-lts
+    echo "Removing conflicting nodejs-lts packages..."
+    sudo pacman -R --noconfirm nodejs-lts-hydrogen  # Or nodejs-lts-iron, depending on which one you want to keep
+fi
+
 echo "Installing yay packages..."
 if [[ -f "$LISTS_DIR/aur-pkglist.txt" ]]; then
     yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
