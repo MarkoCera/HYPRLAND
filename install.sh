@@ -25,7 +25,7 @@ fi
 
 echo "Installing yay packages..."
 if [[ -f "$LISTS_DIR/aur-pkglist.txt" ]]; then
-    sudo -u vagrant yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
+    yes y|yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
 else
     echo "WARNING: aur-pkglist.txt NOT FOUND!"
 fi
