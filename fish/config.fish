@@ -100,7 +100,8 @@ abbr -a -g ipe 'curl ifconfig.co'																				# Get external IP address
 abbr -a -g ips 'ip link show'																					# Get network interfaces information
 abbr -a -g wloff 'rfkill block wlan'																			# Block wlan, killing wifi connection
 abbr -a -g wlon 'rfkill unblock wlan'																		# Unblock wlan, start wifi connection
-abbr -a -g ff 'firefox'																								#
+abbr -a -g ff 'firefox'	
+abbr -a -g updpkg '$HOME/HYPRLAND/hypr/scripts/updatepkg'																							#
 
 # Source plugins
 # Useful plugins: archlinux bang-bang cd colorman sudope vcs

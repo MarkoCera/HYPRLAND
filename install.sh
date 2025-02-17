@@ -35,7 +35,7 @@ mkdir -p "$CONFIG_DIR"
 for folder in "$REPO_DIR"/*/; do
     folder_name=$(basename "$folder")
     
-    if [[ "$folder_name" =~ ^(.git|README|LICENSE|scripts|install.sh|lists)$ ]]; then
+    if [[ "$folder_name" =~ ^(.git|README|LICENSE|scripts|install.sh|lists|test.log)$ ]]; then
         continue
     fi
     
@@ -52,7 +52,7 @@ sudo systemctl enable ly.service &> /dev/null
 sudo systemctl start ly.service &> /dev/null
 
 echo "Setting up wallpaper,fonts,themes,icons..."
-hyprpaper -i "$REPO_DIR"/hypr/misc/Fantasy-Landscape.png &> /dev/null
+hyprpaper -i "$REPO_DIR"/hypr/wallpapers/1.png &> /dev/null
 
 gsettings set org.gnome.desktop.interface gtk-theme "catppuccin-mocha-pink-standard+default" &> /dev/null
 if [[ $(gsettings get org.gnome.desktop.interface gtk-theme) != "'catppuccin-mocha-pink-standard+default'" ]]; then

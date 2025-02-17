@@ -1,3 +1,8 @@
-#!/usr/bin/bash
-swww init
-swww img $1 --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 3
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/HYPRLAND/hypr/wallpapers/"
+CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+
+hyprctl hyprpaper reload ,"$WALLPAPER"

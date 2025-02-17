@@ -1,0 +1,21 @@
+#!/bin/bash
+
+LIST_DIR="$HOME/HYPRLAND/lists"
+
+mkdir -p "$LIST_DIR"
+
+available_aur=()
+
+echo "Updating AUR package list..."
+while read -r pkg; do
+    if yay -Si "$pkg" > /dev/null 2>&1; then
+        available_aur+=("$pkg")
+    fi
+done < <(pacman -Qqm)
+
+printf "%s\n" "${available_aur[@]}" > "$LIST_DIR/aur-pkglist.txt"
+
+echo "Updating official package list..."
+pacman -Qqen > "$LIST_DIR/pkglist.txt"
+
+echo "Done! Lists updated in $LIST_DIR."

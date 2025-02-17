@@ -57,6 +57,7 @@ mariadb
 maven
 mtr
 nano
+networkmanager
 nm-connection-editor
 noto-fonts
 ntfs-3g
