@@ -57,7 +57,6 @@ mariadb
 maven
 mtr
 nano
-networkmanager
 nm-connection-editor
 noto-fonts
 ntfs-3g
@@ -92,7 +91,6 @@ smartmontools
 sof-firmware
 starship
 swappy
-tela-circle-icon-theme-pink
 texlive-bin
 texstudio
 thefuck
@@ -123,5 +121,4 @@ xf86-video-vmware
 xorg-server
 xorg-xinit
 xreader
-xwaylandvideobridge
 zram-generator

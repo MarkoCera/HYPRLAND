@@ -81,7 +81,7 @@ end
 abbr -a -g ytmp3 'youtube-dl --extract-audio --audio-format mp3'				# Convert/Download YT videos as mp3
 abbr -a -g cls 'clear'																								# Clear
 abbr -a -g h 'history'																								# Show history
-abbr -a -g upd 'sudo pacman -Syu --noconfirm'																								# Update everything
+abbr -a -g upd 'sudo pacman -Syu'																								# Update everything
 abbr -a -g please 'sudo'																						# Polite way to sudo
 abbr -a -g fucking 'sudo'																						# Rude way to sudo
 abbr -a -g sayonara 'shutdown now'																	# Epic way to shutdown
@@ -100,7 +100,6 @@ abbr -a -g ipe 'curl ifconfig.co'																				# Get external IP address
 abbr -a -g ips 'ip link show'																					# Get network interfaces information
 abbr -a -g wloff 'rfkill block wlan'																			# Block wlan, killing wifi connection
 abbr -a -g wlon 'rfkill unblock wlan'																		# Unblock wlan, start wifi connection
-abbr -a -g ff 'firefox'	
 abbr -a -g updpkg '$HOME/HYPRLAND/hypr/scripts/updatepkg'																							#
 
 # Source plugins

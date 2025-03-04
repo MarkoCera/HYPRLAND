@@ -1,9 +1,10 @@
+appimage-appimage
 cava
-electron28
-electron29
 hyprland-protocols-git
 libelectron
+libnm-iwd
 ly-git
+networkmanager-iwd
 nomacs
 paper-icon-theme-git
 pipes.sh
@@ -21,9 +22,11 @@ spotify
 stremio
 sweet-gtk-theme
 teams
+tela-icon-theme-git
 ttf-iosevka-lyte-nerd-font
 tty-clock
 vesktop-git
 wlogout
 xnviewmp
+xwaylandvideobridge
 yay

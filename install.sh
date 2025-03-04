@@ -6,8 +6,16 @@ CONFIG_DIR="$HOME/.config"
 REPO_DIR="$HOME/HYPRLAND"
 LISTS_DIR="$HOME/HYPRLAND/lists"
 
+
 echo "Installing basic tools..."
 sudo pacman -S --needed --noconfirm base-devel &> /dev/null
+
+echo "Enhancing git..."
+git config --global http.postBuffer 157286400
+
+echo "Configuring pacman..."
+sudo sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/; s/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+sudo pacman -Sy
 
 if ! command -v yay &> /dev/null; then
     echo "Installing yay..."
@@ -24,9 +32,8 @@ else
 fi
 
 echo "Installing yay packages..."
-yay -Syu --noconfirm --needed
 if [[ -f "$LISTS_DIR/aur-pkglist.txt" ]]; then
-    yes y|yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
+    yay -S --needed --noconfirm $(cat $LISTS_DIR/aur-pkglist.txt)
 else
     echo "WARNING: aur-pkglist.txt NOT FOUND!"
 fi
