@@ -1,23 +1,22 @@
 #!/bin/bash
 
-# status="$(acpi -b | grep -ioh "\w*charging\w*")"
-# level="$(acpi -b | grep -o -P "[0-9]+(?=%)")"
+status="$(cat /sys/class/power_supply/BAT0/status)"
+level="$(cat /sys/class/power_supply/BAT0/capacity)"
 
-status="$(cat /sys/class/power_supply/BAT1/status)"
-level="$(cat /sys/class/power_supply/BAT1/capacity)"
-
-if [[ ("$status" == "Discharging") || ("$status" == "Full") ]]; then
-  if [[ "$level" -eq "0" ]]; then
-    printf " "
-  elif [[ ("$level" -ge "0") && ("$level" -le "25") ]]; then
-    printf " "
-  elif [[ ("$level" -ge "25") && ("$level" -le "50") ]]; then
-    printf " "
-  elif [[ ("$level" -ge "50") && ("$level" -le "75") ]]; then
-    printf " "
-  elif [[ ("$level" -ge "75") && ("$level" -le "100") ]]; then
-    printf " "
+if [[ "$status" == "Discharging" || "$status" == "Full" ]]; then
+  if (( level == 0 )); then
+    echo -n "    $level%"  
+  elif (( level > 0 && level <= 25 )); then
+    echo -n "    $level%"  
+  elif (( level > 25 && level <= 50 )); then
+    echo -n "    $level%"  
+  elif (( level > 50 && level <= 75 )); then
+    echo -n "    $level%"  
+  elif (( level > 75 && level <= 100 )); then
+    echo -n "    $level%"  
   fi
 elif [[ "$status" == "Charging" ]]; then
-  printf " "
+  echo -n "    $level%"  
+else
+  echo "Unknown status"
 fi

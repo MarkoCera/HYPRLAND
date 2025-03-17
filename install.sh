@@ -43,7 +43,7 @@ mkdir -p "$CONFIG_DIR"
 for folder in "$REPO_DIR"/*/; do
     folder_name=$(basename "$folder")
     
-    if [[ "$folder_name" =~ ^(.git|README|LICENSE|scripts|install.sh|lists|test.log)$ ]]; then
+    if [[ "$folder_name" =~ ^(.git|README|LICENSE|scripts|install.sh|lists|test.log|starship.toml)$ ]]; then
         continue
     fi
     
