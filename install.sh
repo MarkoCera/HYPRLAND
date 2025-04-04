@@ -22,7 +22,7 @@ update_mirrorlist() {
 install_basic_tools() {
     echo "Installing basic tools..."
     sudo pacman -S --needed --noconfirm base-devel &> /dev/null
-    sudo pacman -S git --noconfirm
+    sudo pacman -S git reflector --noconfirm
     git config --global http.postBuffer 157286400
 }
 
@@ -31,14 +31,20 @@ configure_pacman() {
     sudo sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/; s/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
     sudo pacman -Sy archlinux-keyring --noconfirm &> /dev/null
     sudo pacman -Syu --noconfirm &> /dev/null
+
+    sudo reflector --country 'RS' --fastest 10 --sort rate --save /etc/pacman.d/mirrorlist
+    sudo pacman -Syy --noconfirm
+
 }
 
 install_yay() {
     if ! command -v yay &> /dev/null; then
         echo "Installing yay..."
-        git clone -q https://aur.archlinux.org/yay.git $HOME/yay &> /dev/null
-        cd $HOME/yay && makepkg -si --noconfirm &> /dev/null
+        git clone https://aur.archlinux.org/yay.git $HOME/yay
+        cd $HOME/yay && makepkg -si --noconfirm
         cd $HOME && rm -rf $HOME/yay
+    else
+        echo "yay is already installed."
     fi
 }
 
