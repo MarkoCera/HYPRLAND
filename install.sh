@@ -29,7 +29,7 @@ install_basic_tools() {
 configure_pacman() {
     echo "Configuring pacman..."
     sudo sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/; s/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
-    sudo pacman -Sy archlinux-keyring
+    sudo pacman -Sy archlinux-keyring --noconfirm 
     sudo pacman -Syu --noconfirm #&> /dev/null
 }
 
