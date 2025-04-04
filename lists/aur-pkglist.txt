@@ -1,5 +1,5 @@
 appimage-appimage
-cava
+catppuccin-gtk-theme-mocha
 hyprland-protocols-git
 libelectron
 libnm-iwd
@@ -11,6 +11,7 @@ pipes.sh
 plymouth-theme-arch-logo
 pokemon-colorscripts-git
 pw-volume
+qdep
 rose-pine-gtk-theme
 ruby-bcrypt
 ruby-capybara

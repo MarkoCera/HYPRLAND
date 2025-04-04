@@ -29,8 +29,8 @@ install_basic_tools() {
 configure_pacman() {
     echo "Configuring pacman..."
     sudo sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/; s/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
-    sudo pacman -Sy archlinux-keyring --noconfirm 
-    sudo pacman -Syu --noconfirm #&> /dev/null
+    sudo pacman -Sy archlinux-keyring --noconfirm &> /dev/null
+    sudo pacman -Syu --noconfirm &> /dev/null
 }
 
 install_yay() {
@@ -45,7 +45,7 @@ install_yay() {
 install_packages() {
     echo "Installing pacman packages..."
     if [[ -f "$LISTS_DIR/pkglist.txt" && -s "$LISTS_DIR/pkglist.txt" ]]; then
-        sudo pacman -S --needed --noconfirm $(cat $LISTS_DIR/pkglist.txt) &> /dev/null
+        sudo pacman -S --needed --noconfirm $(cat $LISTS_DIR/pkglist.txt) #&> /dev/null
     else
         echo "WARNING: pkglist.txt NOT FOUND!"
     fi

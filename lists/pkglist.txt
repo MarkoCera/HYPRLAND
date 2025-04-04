@@ -1,5 +1,7 @@
 7zip
+acpi
 amd-ucode
+ansible
 arc-gtk-theme
 asciiquarium
 assimp
@@ -12,8 +14,13 @@ bluez
 bluez-utils
 brightnessctl
 btop
+cava
 cmatrix
 code
+cowsay
+docker
+docker-buildx
+docker-compose
 dopewars
 dpkg
 dunst
@@ -23,8 +30,8 @@ figlet
 firefox
 fish
 fisher
-flatpak
 font-manager
+fortune-mod
 git
 github-cli
 glew
@@ -47,7 +54,9 @@ iwd
 jdk8-openjdk
 jq
 kitty
+kubectl
 kvantum
+less
 libpulse
 libreoffice-fresh
 libva-intel-driver
@@ -55,6 +64,7 @@ linux
 linux-firmware
 mariadb
 maven
+minikube
 mtr
 nano
 nm-connection-editor
@@ -91,6 +101,7 @@ smartmontools
 sof-firmware
 starship
 swappy
+terraform
 texlive-bin
 texstudio
 thefuck
@@ -98,6 +109,7 @@ thunar
 timeshift
 tinysparql
 traceroute
+tree
 ttf-font-awesome
 ttf-jetbrains-mono
 vagrant
