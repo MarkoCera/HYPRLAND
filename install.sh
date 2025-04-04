@@ -25,6 +25,8 @@ update_mirrorlist() {
 install_basic_tools() {
     echo "Installing basic tools..."
     sudo pacman -S --needed --noconfirm base-devel &> /dev/null
+    sudo pacman -S git --noconfirm
+    git config --global http.postBuffer 157286400
 }
 
 configure_pacman() {
