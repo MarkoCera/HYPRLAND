@@ -2,7 +2,6 @@
 acpi
 amd-ucode
 ansible
-arc-gtk-theme
 asciiquarium
 assimp
 awesome-terminal-fonts
