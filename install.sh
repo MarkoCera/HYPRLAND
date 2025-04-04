@@ -9,13 +9,10 @@ LISTS_DIR="$HOME/HYPRLAND/lists"
 update_mirrorlist() {
     echo "Configuring mirror list..."
     
-    # Pravljenje backup-a ako ne postoji
     [[ ! -f /etc/pacman.d/mirrorlist.backup ]] && sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
     
-    # Skidanje svežeg mirrorlist-a
     sudo curl -s "https://archlinux.org/mirrorlist/all/" -o /etc/pacman.d/mirrorlist
     
-    # Otkomentarisanje svih servera i random sortiranje
     sudo sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
     sudo sort -R /etc/pacman.d/mirrorlist -o /etc/pacman.d/mirrorlist
     
@@ -32,6 +29,7 @@ install_basic_tools() {
 configure_pacman() {
     echo "Configuring pacman..."
     sudo sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/; s/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+    sudo pacman -Sy archlinux-keyring
     sudo pacman -Syu --noconfirm #&> /dev/null
 }
 
