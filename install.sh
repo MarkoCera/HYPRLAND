@@ -7,7 +7,9 @@ REPO_DIR="$HOME/HYPRLAND"
 LISTS_DIR="$HOME/HYPRLAND/lists"
 
 
+
 echo "Installing basic tools..."
+sudo pacman -Syu -y
 sudo pacman -S --needed --noconfirm base-devel &> /dev/null
 
 echo "Enhancing git..."
@@ -15,7 +17,7 @@ git config --global http.postBuffer 157286400
 
 echo "Configuring pacman..."
 sudo sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/; s/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
-sudo pacman -Sy
+sudo pacman -Syu &> /dev/null
 
 if ! command -v yay &> /dev/null; then
     echo "Installing yay..."
