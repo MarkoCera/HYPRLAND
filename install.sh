@@ -6,10 +6,21 @@ CONFIG_DIR="$HOME/.config"
 REPO_DIR="$HOME/HYPRLAND"
 LISTS_DIR="$HOME/HYPRLAND/lists"
 
+echo "Configuring mirror list..."
+if [[ ! -f /etc/pacman.d/mirrorlist.backup ]]; then
+    sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+fi
 
+sudo curl -s "https://archlinux.org/mirrorlist/all/" -o /etc/pacman.d/mirrorlist
+
+sudo sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
+
+sudo rankmirrors -n 10 /etc/pacman.d/mirrorlist | sudo tee /etc/pacman.d/mirrorlist.ranked > /dev/null
+
+sudo mv /etc/pacman.d/mirrorlist.ranked /etc/pacman.d/mirrorlist
+echo "Mirror list updated successfully!"
 
 echo "Installing basic tools..."
-sudo pacman -Syu -y
 sudo pacman -S --needed --noconfirm base-devel &> /dev/null
 
 echo "Enhancing git..."
@@ -27,7 +38,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 echo "Installing pacman packages..."
-if [[ -f "$LISTS_DIR/pkglist.txt" ]]; then
+if [[ -f "$LISTS_DIR/pkglist.txt" && -s "$LISTS_DIR/pkglist.txt" ]]; then
     sudo pacman -S --needed --noconfirm $(cat $LISTS_DIR/pkglist.txt) &> /dev/null
 else
     echo "WARNING: pkglist.txt NOT FOUND!"
@@ -53,7 +64,8 @@ for folder in "$REPO_DIR"/*/; do
     ln -snf "$folder" "$CONFIG_DIR/$folder_name" &> /dev/null
 done
 
-sudo ln -snf "$REPO_DIR/ly" /etc/ &> /dev/null
+sudo cp -r "$REPO_DIR/ly" /etc/ &> /dev/null
+#sudo ln -snf "$REPO_DIR/ly" /etc/ &> /dev/null
 
 chsh -s /usr/bin/fish &> /dev/null
 
@@ -62,9 +74,9 @@ sudo systemctl enable ly.service &> /dev/null
 sudo systemctl start ly.service &> /dev/null
 sudo systemctl enable bluetooth.service &> /dev/null
 sudo systemctl start bluetooth.service &> /dev/null
-sudo systemctl enable NetworkManager.servicee &> /dev/null
+sudo systemctl enable NetworkManager.service &> /dev/null
 sudo systemctl start NetworkManager.service &> /dev/null
-sudo systemctl enable iwd.servicee &> /dev/null
+sudo systemctl enable iwd.service &> /dev/null
 sudo systemctl start iwd.service &> /dev/null
 
 echo "Setting up wallpaper,fonts,themes,icons..."
@@ -76,7 +88,7 @@ if [[ $(gsettings get org.gnome.desktop.interface gtk-theme) != "'catppuccin-moc
 fi
 
 gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-pink-dark" &> /dev/null
-if [[ $(gsettings get org.gnome.desktop.interface icon-theme) != "'Tela-pink'" ]]; then
+if [[ $(gsettings get org.gnome.desktop.interface icon-theme) != "'Tela-pink-dark'" ]]; then
     echo "WARNING: Tela-pink icon theme might not be installed correctly!"
 fi
 
