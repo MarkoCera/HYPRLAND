@@ -1,0 +1,15 @@
+#!/bin/bash
+
+FILENAME="$HOME/HYPRLAND/hypr/hyprland.conf"
+
+current_opacity=$(grep -m 1 '^active_opacity' "$FILENAME" | awk -F'=' '{gsub(/ /,"",$2); print $2}')
+
+if [[ "$current_opacity" == "1" ]]; then
+    new_opacity="0.85"
+else
+    new_opacity="1"
+fi
+
+sed -i "s/^[[:space:]]*active_opacity *= *.*/active_opacity = $new_opacity/" "$FILENAME"
+sed -i "s/^[[:space:]]*inactive_opacity *= *.*/inactive_opacity = $new_opacity/" "$FILENAME"
+hyprctl reload

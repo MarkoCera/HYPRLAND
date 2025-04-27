@@ -22,8 +22,8 @@ update_mirrorlist() {
 install_basic_tools() {
     echo "Installing basic tools..."
     sudo pacman -S --needed --noconfirm base-devel &> /dev/null
-    sudo pacman -S git reflector --noconfirm
-    git config --global http.postBuffer 157286400
+    sudo pacman -S git reflector --noconfirm &> /dev/null
+    git config --global http.postBuffer 157286400 &> /dev/null
 }
 
 configure_pacman() {
@@ -40,7 +40,7 @@ configure_pacman() {
 install_yay() {
     if ! command -v yay &> /dev/null; then
         echo "Installing yay..."
-        git clone https://aur.archlinux.org/yay.git $HOME/yay
+        git clone https://aur.archlinux.org/yay.git $HOME/yay &> /dev/null
         cd $HOME/yay && makepkg -si --noconfirm
         cd $HOME && rm -rf $HOME/yay
     else
@@ -51,7 +51,7 @@ install_yay() {
 install_packages() {
     echo "Installing pacman packages..."
     if [[ -f "$LISTS_DIR/pkglist.txt" && -s "$LISTS_DIR/pkglist.txt" ]]; then
-        sudo pacman -S --needed --noconfirm $(cat $LISTS_DIR/pkglist.txt) #&> /dev/null
+        sudo pacman -S --needed --noconfirm $(cat $LISTS_DIR/pkglist.txt) &> /dev/null
     else
         echo "WARNING: pkglist.txt NOT FOUND!"
     fi
